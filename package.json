@@ -1,0 +1,23 @@
+{
+  "name": "haxserver",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Haxrox/HaxServer.git"
+  },
+  "author": "Haxrox",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Haxrox/HaxServer/issues"
+  },
+  "homepage": "https://github.com/Haxrox/HaxServer#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
