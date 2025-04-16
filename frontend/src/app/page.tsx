@@ -1,8 +1,18 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { Card, Toolbar, ToolbarButton, Image, tokens } from '@fluentui/react-components';
+import { WindowNewRegular } from '@fluentui/react-icons';
 
 export default function Home() {
+  const [hostname, setHostname] = useState('localhost');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setHostname(window.location.hostname);
+    }
+  }, []);
+
   return (
     <>
       {/* Header Section */}
@@ -53,14 +63,21 @@ export default function Home() {
             <ToolbarButton as="a" href="/xiangqi" appearance="primary">
               Xiangqi
             </ToolbarButton>
-            <ToolbarButton as="a" href="/about" appearance="primary">
-              About Us
+            <ToolbarButton
+              as="a"
+              href={`https://${hostname}:${process.env.NEXT_PUBLIC_PLEX_PORT || 32400}`}
+              appearance="primary"
+            >
+              Plex
+              <WindowNewRegular />
             </ToolbarButton>
-            <ToolbarButton as="a" href="/contact" appearance="primary">
-              Contact
-            </ToolbarButton>
-            <ToolbarButton as="a" href="/services" appearance="primary">
-              Our Services
+            <ToolbarButton
+              as="a"
+              href={`https://${hostname}:${process.env.NEXT_PUBLIC_CALIBRE_PORT || 8000}`}
+              appearance="primary"
+            >
+              Calibre
+              <WindowNewRegular />
             </ToolbarButton>
           </Toolbar>
         </Card>

@@ -10,6 +10,7 @@ const app = express();
 const HTTP_PORT = process.env.HTTP_PORT || 8080;
 const HTTPS_PORT = process.env.HTTPS_PORT || 4430;
 
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend/out/index.html'));
 });
@@ -28,13 +29,13 @@ app.get('/fluent', (req, res) => {
   res.sendFile(path.join(__dirname, 'fluent.html'));
 });
 
-http.createServer(app).listen(HTTP_PORT, () => {
-  console.log(`HTTP Server is running on port ${HTTP_PORT}`);
-});
-
 // Catch-all middleware for 404
 app.use((req, res) => {
   res.status(404).sendFile(path.join(__dirname, 'frontend/out/404.html'));
+});
+
+http.createServer(app).listen(HTTP_PORT, () => {
+  console.log(`HTTP Server is running on port ${HTTP_PORT}`);
 });
 
 // Create an HTTPS server
