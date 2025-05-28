@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 });
 app.use(express.static(path.join(__dirname, 'frontend/out')));
 
-app.get('/xiangqi', (req, res) => {
+app.get('/shanchi', (req, res) => {
   res.sendFile(path.join(__dirname, 'xqwlight/JavaScript/index.html'));
 });
 

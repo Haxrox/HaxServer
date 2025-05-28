@@ -60,8 +60,8 @@ export default function Home() {
             gap: tokens.spacingVerticalM,
             alignItems: 'center'
           }}>
-            <ToolbarButton as="a" href="/xiangqi" appearance="primary">
-              Xiangqi
+            <ToolbarButton as="a" href="/shanchi" appearance="primary">
+              將族聖殿 (ShanChi)
             </ToolbarButton>
             <ToolbarButton
               as="a"
@@ -76,7 +76,7 @@ export default function Home() {
               href={`https://${hostname}:${process.env.NEXT_PUBLIC_CALIBRE_PORT || 8000}`}
               appearance="primary"
             >
-              Calibre
+              陳家圖書館 (Chen Library)
               <WindowNewRegular />
             </ToolbarButton>
           </Toolbar>
