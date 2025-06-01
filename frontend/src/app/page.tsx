@@ -76,7 +76,7 @@ export default function Home() {
               href={`https://${hostname}:${process.env.NEXT_PUBLIC_CALIBRE_PORT || 8000}`}
               appearance="primary"
             >
-              陳家圖書館 (Chen Library)
+              陳氏家族圖書館 (Chen&apos;s Library)
               <WindowNewRegular />
             </ToolbarButton>
           </Toolbar>
