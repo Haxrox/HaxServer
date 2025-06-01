@@ -3,6 +3,10 @@
 import { useState, useEffect } from 'react';
 import { Card, Toolbar, ToolbarButton, Image, tokens } from '@fluentui/react-components';
 import { WindowNewRegular } from '@fluentui/react-icons';
+import { initializeIcons } from '@fluentui/font-icons-mdl2';
+import { GitHubLogoIcon } from '@fluentui/react-icons-mdl2';
+
+initializeIcons();
 
 export default function Home() {
   const [hostname, setHostname] = useState('localhost');
@@ -91,6 +95,9 @@ export default function Home() {
           color: tokens.colorNeutralForeground2, // Subtle footer text color
         }}
       >
+        <a href="https://github.com/Haxrox/HaxServer" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+          <GitHubLogoIcon style={{ fontSize: '24px', marginRight: '8px', verticalAlign: 'middle' }} />
+        </a>
         <p>&copy; 2025 HaxTech. All rights reserved.</p>
       </footer>
     </>
