@@ -16,7 +16,10 @@ const HTTPS_CERT = process.env.HTTPS_CERT || path.join(__dirname, 'selfsigned.ce
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend/out/index.html'));
 });
-app.use(express.static(path.join(__dirname, 'frontend/out')));
+app.use(express.static(path.join(__dirname, 'frontend/out'), {
+  index: false,
+  extensions: ['html']
+}));
 
 app.get('/shanchi', (req, res) => {
   res.sendFile(path.join(__dirname, 'xqwlight/JavaScript/index.html'));

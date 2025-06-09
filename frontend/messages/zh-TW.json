@@ -1,0 +1,11 @@
+{
+  "LocaleSwitcher": {
+    "label": "Change language - TW",
+    "en": "英文",
+    "zh-TW": "繁體中文",
+    "locale": "{locale, select, en {英文} zh-TW {繁體中文}}"
+  },
+  "ShanChi": {
+    "name": "將族聖殿"
+  }
+}

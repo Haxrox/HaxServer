@@ -1,26 +1,33 @@
-import type { Metadata } from "next";
+// Next
+import { Locale, hasLocale } from 'next-intl';
+import { setRequestLocale } from 'next-intl/server';
+// import { notFound } from 'next/navigation';
+
+// Src
+import { routing } from '@/i18n/routing';
 import "./globals.css";
-import FluentUIProvider from "../components/FluentProvider";
-
-export const metadata: Metadata = {
-  title: "HaxServer",
-  description: "Pointer to all web applications created by HaxTech",
-  icons: {
-    icon: "/Shark.png",
-    shortcut: "/Shark.png",
-    apple: "/Shark.png",
-  },
-};
-
-export default function RootLayout({
+// Since we have a `not-found.tsx` page on the root, a layout file
+// is required, even if it's just passing children through.
+export default async function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+  params
+}: {
+    children: React.ReactNode;
+    params: Promise<{ locale: Locale }>;
+  }) {
+  // Ensure that the incoming `locale` is valid
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    // notFound();
+  }
+
+    // Enable static rendering
+  setRequestLocale(locale);
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body>
-        <FluentUIProvider>{children}</FluentUIProvider>
+        {children}
       </body>
     </html>
   );

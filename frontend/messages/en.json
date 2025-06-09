@@ -1,0 +1,11 @@
+{
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "en": "English",
+    "zh-TW": "Traditional Chinese",
+    "locale": "{locale, select, en {English} zh-TW {Traditional Chinese}}"
+  },
+  "ShanChi": {
+    "name": "ShanChi"
+  }
+}
