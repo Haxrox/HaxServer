@@ -97,6 +97,7 @@ export default function Home() {
               {/* 將族聖殿 */}
               <Image
                 src="/xiangqi-white-transparent.png"
+                alt="Xiangqi"
               ></Image>
             </Button>
             <Button
@@ -111,6 +112,7 @@ export default function Home() {
               {/* 觀雲樓 */}
               <Image
                 src="/plex-white-transparent.png"
+                alt="Plex"
               ></Image>
               {/* <WindowNewRegular /> */}
             </Button>
@@ -125,7 +127,8 @@ export default function Home() {
               >
               {/* 聽雨亭 */}
               <Image
-                src="/jellyfin-white-transparent.png"
+              src="/jellyfin-white-transparent.png"
+              alt="Jellyfin"
               ></Image>
               {/* <WindowNewRegular /> */}
             </Button>
@@ -143,7 +146,8 @@ export default function Home() {
                 paddingRight: tokens.spacingHorizontalM
               }} />
               <Image
-                src="/calibre-white-transparent.png"
+              src="/calibre-white-transparent.png"
+              alt="Calibre"
               ></Image>
               {/* <WindowNew24Regular /> */}
             </Button>
@@ -159,9 +163,8 @@ export default function Home() {
             >
               {/* 智慧之屋 */}
               <Image
-                src="/karaoke-white-transparent.png"
-                style={{ color: 'grayscale(100%)' }} // Grayscale for disabled state
-                aria-disabled="true"
+              src="/karaoke-white-transparent.png"
+              alt="Karaoke"
               ></Image>
               {/* <WindowNew24Regular /> */}
             </Button>
