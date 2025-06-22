@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Card, Toolbar, ToolbarButton, Image, tokens } from '@fluentui/react-components';
-import { WindowNewRegular } from '@fluentui/react-icons';
+import { WindowNewRegular, WindowNew24Regular, Library32Filled } from '@fluentui/react-icons';
 import { initializeIcons } from '@fluentui/font-icons-mdl2';
 import { GitHubLogoIcon } from '@fluentui/react-icons-mdl2';
 
@@ -22,13 +22,31 @@ export default function Home() {
       {/* Header Section */}
       <header
         style={{
-          paddingTop: tokens.spacingVerticalXXL,
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
           height: "15vh"
         }}
-      >
+        >
+        <Image
+          src="lantern-transparent.png"
+          alt="Lantern Image"
+          fit="contain"
+          />
         <Image
           src="title.png"
           alt="Title Image"
+          fit="cover"
+          width="50px"
+          style={{
+            paddingTop: tokens.spacingVerticalXXL,
+            paddingBottom: tokens.spacingVerticalXXL
+          }}
+        />
+        <Image
+          src="lantern-transparent.png"
+          alt="Lantern Image"
           fit="contain"
         />
       </header>
@@ -49,8 +67,7 @@ export default function Home() {
           padding: tokens.spacingVerticalXXL, // Use Fluent UI token for spacing
           borderRadius: tokens.borderRadiusMedium, // Rounded corners
           boxShadow: tokens.shadow16, // Subtle shadow
-          width: '400px', // Fixed width for consistent layout
-          height: '400px', // Fixed height to ensure proper centering
+          width: '45vh', // Fixed width for consistent layout
         }}>
           <Image bordered shape="circular" alt="HaxServer" src="/Shark.png"/>
           <h1 style={{
@@ -66,32 +83,76 @@ export default function Home() {
             gap: tokens.spacingVerticalM,
             alignItems: 'center'
           }}>
-            <ToolbarButton as="a" href="/shanchi" appearance="primary">
-              將族聖殿
+            <ToolbarButton
+              as="a"
+              shape="circular"
+              appearance="primary"
+              href="/shanchi"
+            >
+              {/* 將族聖殿 */}
+              <Image
+                src="/xiangqi-white-transparent.png"
+              ></Image>
             </ToolbarButton>
             <ToolbarButton
               as="a"
+              shape="circular"
+              appearance="primary"
               href={`https://${hostname}:${process.env.NEXT_PUBLIC_PLEX_PORT || 32400}`}
-              appearance="primary"
             >
-              觀雲樓
-              <WindowNewRegular />
+              {/* 觀雲樓 */}
+              <Image
+                src="/plex-white-transparent.png"
+              ></Image>
+              {/* <WindowNewRegular /> */}
             </ToolbarButton>
             <ToolbarButton
               as="a"
+              shape="circular"
+              appearance="primary"
               href={`https://${hostname}:${process.env.NEXT_PUBLIC_JELLYFIN_PORT || 8920}`}
-              appearance="primary"
             >
-              聽雨亭
-              <WindowNewRegular />
+              {/* 聽雨亭 */}
+              <Image
+                src="/jellyfin-white-transparent.png"
+              ></Image>
+              {/* <WindowNewRegular /> */}
             </ToolbarButton>
             <ToolbarButton
               as="a"
-              href={`https://${hostname}:${process.env.NEXT_PUBLIC_CALIBRE_PORT || 8000}`}
+              shape="circular"
               appearance="primary"
+              style={{
+                padding: tokens.spacingHorizontalM,
+              }}
+              href={`https://${hostname}:${process.env.NEXT_PUBLIC_CALIBRE_PORT || 8000}`}
+              >
+              {/* 智慧之屋 */}
+              <Library32Filled style={{
+                paddingRight: tokens.spacingHorizontalM
+              }} />
+              <Image
+                src="/calibre-white-transparent.png"
+              ></Image>
+              {/* <WindowNew24Regular /> */}
+            </ToolbarButton>
+            <ToolbarButton
+              as="a"
+              shape="circular"
+              appearance="primary"
+              style={{
+                padding: tokens.spacingHorizontalM,
+              }}
+              href={`https://${hostname}:${process.env.NEXT_PUBLIC_CALIBRE_PORT || 8000}`}
+              // disabled={true}
             >
-              智慧之屋
-              <WindowNewRegular />
+              {/* 智慧之屋 */}
+              <Image
+                src="/karaoke-white-transparent.png"
+                style={{ color: 'grayscale(100%)' }} // Grayscale for disabled state
+                aria-disabled="true"
+              ></Image>
+              {/* <WindowNew24Regular /> */}
             </ToolbarButton>
           </Toolbar>
         </Card>
@@ -100,11 +161,17 @@ export default function Home() {
       {/* Footer Section */}
       <footer
         style={{
-          height: "10vh",
+          position: 'fixed',
+          left: 0,
+          bottom: 0,
+          width: '100%',
+          height: "15vh",
           textAlign: 'center',
           paddingTop: tokens.spacingVerticalM,
-          paddingBottom: 0,
-          bottom: "0px",
+          zIndex: 100,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'flex-end',
         }}
       >
         <a href="https://github.com/Haxrox/HaxServer" target="_blank" rel="noopener noreferrer"
@@ -119,20 +186,20 @@ export default function Home() {
             verticalAlign: 'middle'
           }} />
         </a>
-        <p>&copy; 2025 HaxTech. All rights reserved.</p>
+        <p>
+          &copy; 2025 HaxTech. All rights reserved.
+        </p>
         <div
           style={{
             width: "100%",
-            height: "80px",
+            height: "60%",
             backgroundImage: "url('/footer.png')",
-            backgroundRepeat: "repeat"
+            backgroundRepeat: "repeat-x",
+            backgroundPosition: "bottom",
+            backgroundSize: "auto 100%",
+            marginTop: 'auto'
           }}
         />
-        {/* <Image
-          src="footer.png"
-          alt="Footer Image"
-          fit="contain"
-        /> */}
       </footer>
     </>
   );
