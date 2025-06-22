@@ -91,13 +91,15 @@ export default function Home() {
               appearance="primary"
               style={{
                 paddingBlock: tokens.spacingHorizontalM,
+                boxShadow: tokens.shadow16,
               }}
               href="/shanchi"
-            >
+              >
               {/* 將族聖殿 */}
               <Image
-                src="/xiangqi-white-transparent.png"
-                alt="Xiangqi"
+              src="/xiangqi-white-transparent.png"
+              fit="contain"
+              alt="Xiangqi"
               ></Image>
             </Button>
             <Button
@@ -106,14 +108,16 @@ export default function Home() {
               appearance="primary"
               style={{
                 paddingBlock: tokens.spacingHorizontalM,
+                boxShadow: tokens.shadow16,
               }}
               href={`https://${hostname}:${process.env.NEXT_PUBLIC_PLEX_PORT || 32400}`}
-            >
+              >
               {/* 觀雲樓 */}
               <Image
                 src="/plex-white-transparent.png"
+                fit="contain"
                 alt="Plex"
-              ></Image>
+                ></Image>
               {/* <WindowNewRegular /> */}
             </Button>
             <Button
@@ -122,12 +126,14 @@ export default function Home() {
               appearance="primary"
               style={{
                 paddingBlock: tokens.spacingHorizontalM,
+                boxShadow: tokens.shadow16,
               }}
               href={`https://${hostname}:${process.env.NEXT_PUBLIC_JELLYFIN_PORT || 8920}`}
               >
               {/* 聽雨亭 */}
               <Image
               src="/jellyfin-white-transparent.png"
+              fit="contain"
               alt="Jellyfin"
               ></Image>
               {/* <WindowNewRegular /> */}
@@ -138,15 +144,17 @@ export default function Home() {
               appearance="primary"
               style={{
                 paddingBlock: tokens.spacingHorizontalM,
+                boxShadow: tokens.shadow16,
               }}
               href={`https://${hostname}:${process.env.NEXT_PUBLIC_CALIBRE_PORT || 8000}`}
               >
               {/* 智慧之屋 */}
-              <Library32Filled style={{
+              {/* <Library32Filled style={{
                 paddingRight: tokens.spacingHorizontalM
-              }} />
+                }} /> */}
               <Image
               src="/calibre-white-transparent.png"
+              fit="contain"
               alt="Calibre"
               ></Image>
               {/* <WindowNew24Regular /> */}
@@ -157,13 +165,15 @@ export default function Home() {
               appearance="primary"
               style={{
                 paddingBlock: tokens.spacingHorizontalM,
+                boxShadow: tokens.shadow16,
               }}
-              href={`https://${hostname}:${process.env.NEXT_PUBLIC_CALIBRE_PORT || 8000}`}
+              href={`https://${hostname}/404`}
               // disabled={true}
-            >
+              >
               {/* 智慧之屋 */}
               <Image
               src="/karaoke-white-transparent.png"
+              fit="contain"
               alt="Karaoke"
               ></Image>
               {/* <WindowNew24Regular /> */}
