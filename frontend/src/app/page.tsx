@@ -77,6 +77,14 @@ export default function Home() {
             </ToolbarButton>
             <ToolbarButton
               as="a"
+              href={`https://${hostname}:${process.env.NEXT_PUBLIC_JELLYFIN_PORT || 8920}`}
+              appearance="primary"
+            >
+              Jellyfin
+              <WindowNewRegular />
+            </ToolbarButton>
+            <ToolbarButton
+              as="a"
               href={`https://${hostname}:${process.env.NEXT_PUBLIC_CALIBRE_PORT || 8000}`}
               appearance="primary"
             >
