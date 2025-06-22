@@ -1,0 +1,27 @@
+1:"$Sreact.fragment"
+4:I[894,[],"ClientPageRoot"]
+5:I[4439,["288","static/chunks/758a8f17-6e83abda9bd8d401.js","769","static/chunks/8542cfd6-bddebabf32b99c92.js","453","static/chunks/453-9ee4f69ffb30ef1d.js","811","static/chunks/811-6b3612e10df3f150.js","595","static/chunks/595-a9969cf7a7887082.js","465","static/chunks/app/%5Blocale%5D/page-071ee8d367b3afc1.js"],"default"]
+8:I[9665,[],"MetadataBoundary"]
+a:I[9665,[],"OutletBoundary"]
+d:I[4911,[],"AsyncMetadataOutlet"]
+f:I[9665,[],"ViewportBoundary"]
+11:I[6614,[],""]
+:HL["/_next/static/css/ad34eff9f4cb14d8.css","style"]
+0:{"P":null,"b":"LOhRM4noRM-sQsahAVSXW","p":"","c":["","zh-TW"],"i":false,"f":[[["",{"children":[["locale","zh-TW","d"],{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/ad34eff9f4cb14d8.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],"$L2"]}],{"children":[["locale","zh-TW","d"],["$","$1","c",{"children":[null,"$L3"]}],{"children":["__PAGE__",["$","$1","c",{"children":[["$","$L4",null,{"Component":"$5","searchParams":{},"params":{"locale":"zh-TW"},"promises":["$@6","$@7"]}],["$","$L8",null,{"children":"$L9"}],null,["$","$La",null,{"children":["$Lb","$Lc",["$","$Ld",null,{"promise":"$@e"}]]}]]}],{},null,false]},[["$","p","l",{"children":"Loading..."}],[],[]],false]},null,false],["$","$1","h",{"children":[null,["$","$1","mekT5lfjC4zHu3AzKoSbj",{"children":[["$","$Lf",null,{"children":"$L10"}],null]}],null]}],false]],"m":"$undefined","G":["$11","$undefined"],"s":false,"S":true}
+12:"$Sreact.suspense"
+13:I[4911,[],"AsyncMetadata"]
+15:I[7555,[],""]
+16:I[1295,[],""]
+17:I[5897,["453","static/chunks/453-9ee4f69ffb30ef1d.js","811","static/chunks/811-6b3612e10df3f150.js","985","static/chunks/985-0c423eb9fcdfe6d1.js","450","static/chunks/app/%5Blocale%5D/layout-3fa4ef88945f43be.js"],"default"]
+6:{}
+7:{"locale":"zh-TW"}
+9:["$","$12",null,{"fallback":null,"children":["$","$L13",null,{"promise":"$@14"}]}]
+2:["$","html",null,{"lang":"$undefined","children":["$","body",null,{"children":["$","$L15",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L16",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]
+3:["$","html",null,{"lang":"zh-TW","children":["$","body",null,{"children":["$","$L17",null,{"children":"$L18"}]}]}]
+c:null
+19:I[6096,["453","static/chunks/453-9ee4f69ffb30ef1d.js","811","static/chunks/811-6b3612e10df3f150.js","985","static/chunks/985-0c423eb9fcdfe6d1.js","450","static/chunks/app/%5Blocale%5D/layout-3fa4ef88945f43be.js"],"default"]
+18:["$","$L19",null,{"formats":"$undefined","locale":"zh-TW","messages":{"LocaleSwitcher":{"label":"Change language - TW","en":"英文","zh-TW":"繁體中文","locale":"{locale, select, en {英文} zh-TW {繁體中文}}"},"ShanChi":{"name":"將族聖殿"}},"now":"$undefined","timeZone":"America/Vancouver","children":["$","$L15",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L16",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]
+10:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+b:null
+14:{"metadata":[],"error":null,"digest":"$undefined"}
+e:{"metadata":"$14:metadata","error":null,"digest":"$undefined"}
