@@ -38,8 +38,8 @@ export default function Home() {
         <Image
           src="title.png"
           alt="Title Image"
-          fit="cover"
-          width="50px"
+          fit="contain"
+          width="50vh"
           style={{
             paddingTop: tokens.spacingVerticalXXL,
             paddingBottom: tokens.spacingVerticalXXL
@@ -60,7 +60,7 @@ export default function Home() {
         height: '65vh', // Full viewport height
         overflow: 'hidden', // Prevent overflow
       }}>
-        <Card style={{
+        {/* <Card style={{
           display: 'flex', // Enable Flexbox for the card
           flexDirection: 'column', // Stack content vertically
           justifyContent: 'center', // Center content vertically
@@ -69,16 +69,16 @@ export default function Home() {
           borderRadius: tokens.borderRadiusMedium, // Rounded corners
           boxShadow: tokens.shadow16, // Subtle shadow
           width: '45vh', // Fixed width for consistent layout
-        }}>
-          <Image bordered shape="circular" alt="HaxServer" src="/Shark.png"/>
-          <h1 style={{
+        }}> */}
+          {/* <Image bordered shape="circular" alt="HaxServer" src="/Shark.png"/> */}
+          {/* <h1 style={{
             textAlign: 'center',
             marginBottom: tokens.spacingVerticalL, // Use Fluent UI token for spacing
             fontSize: tokens.fontSizeHero700, // Fluent UI typography token
             fontWeight: tokens.fontWeightSemibold, // Fluent UI typography token
           }}>
             HaxServer
-          </h1>
+          </h1> */}
           {/* Vertical Toolbar Section */}
           <Toolbar vertical style={{
             gap: tokens.spacingVerticalM,
@@ -156,7 +156,7 @@ export default function Home() {
               {/* <WindowNew24Regular /> */}
             </Button>
           </Toolbar>
-        </Card>
+        {/* </Card> */}
       </main>
 
       {/* Footer Section */}
