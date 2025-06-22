@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Card, Toolbar, ToolbarButton, Image, tokens } from '@fluentui/react-components';
+import { Card, Toolbar, Button, Image, tokens } from '@fluentui/react-components';
 import { Library32Filled } from '@fluentui/react-icons';
 // WindowNewRegular, WindowNew24Regular,
 import { initializeIcons } from '@fluentui/font-icons-mdl2';
@@ -84,7 +84,7 @@ export default function Home() {
             gap: tokens.spacingVerticalM,
             alignItems: 'center'
           }}>
-            <ToolbarButton
+            <Button
               as="a"
               shape="circular"
               appearance="primary"
@@ -94,8 +94,8 @@ export default function Home() {
               <Image
                 src="/xiangqi-white-transparent.png"
               ></Image>
-            </ToolbarButton>
-            <ToolbarButton
+            </Button>
+            <Button
               as="a"
               shape="circular"
               appearance="primary"
@@ -106,8 +106,8 @@ export default function Home() {
                 src="/plex-white-transparent.png"
               ></Image>
               {/* <WindowNewRegular /> */}
-            </ToolbarButton>
-            <ToolbarButton
+            </Button>
+            <Button
               as="a"
               shape="circular"
               appearance="primary"
@@ -118,8 +118,8 @@ export default function Home() {
                 src="/jellyfin-white-transparent.png"
               ></Image>
               {/* <WindowNewRegular /> */}
-            </ToolbarButton>
-            <ToolbarButton
+            </Button>
+            <Button
               as="a"
               shape="circular"
               appearance="primary"
@@ -136,8 +136,8 @@ export default function Home() {
                 src="/calibre-white-transparent.png"
               ></Image>
               {/* <WindowNew24Regular /> */}
-            </ToolbarButton>
-            <ToolbarButton
+            </Button>
+            <Button
               as="a"
               shape="circular"
               appearance="primary"
@@ -154,7 +154,7 @@ export default function Home() {
                 aria-disabled="true"
               ></Image>
               {/* <WindowNew24Regular /> */}
-            </ToolbarButton>
+            </Button>
           </Toolbar>
         </Card>
       </main>
