@@ -89,6 +89,9 @@ export default function Home() {
               as="a"
               shape="circular"
               appearance="primary"
+              style={{
+                paddingBlock: tokens.spacingHorizontalM,
+              }}
               href="/shanchi"
             >
               {/* 將族聖殿 */}
@@ -100,6 +103,9 @@ export default function Home() {
               as="a"
               shape="circular"
               appearance="primary"
+              style={{
+                paddingBlock: tokens.spacingHorizontalM,
+              }}
               href={`https://${hostname}:${process.env.NEXT_PUBLIC_PLEX_PORT || 32400}`}
             >
               {/* 觀雲樓 */}
@@ -112,8 +118,11 @@ export default function Home() {
               as="a"
               shape="circular"
               appearance="primary"
+              style={{
+                paddingBlock: tokens.spacingHorizontalM,
+              }}
               href={`https://${hostname}:${process.env.NEXT_PUBLIC_JELLYFIN_PORT || 8920}`}
-            >
+              >
               {/* 聽雨亭 */}
               <Image
                 src="/jellyfin-white-transparent.png"
@@ -125,7 +134,7 @@ export default function Home() {
               shape="circular"
               appearance="primary"
               style={{
-                padding: tokens.spacingHorizontalM,
+                paddingBlock: tokens.spacingHorizontalM,
               }}
               href={`https://${hostname}:${process.env.NEXT_PUBLIC_CALIBRE_PORT || 8000}`}
               >
@@ -143,7 +152,7 @@ export default function Home() {
               shape="circular"
               appearance="primary"
               style={{
-                padding: tokens.spacingHorizontalM,
+                paddingBlock: tokens.spacingHorizontalM,
               }}
               href={`https://${hostname}:${process.env.NEXT_PUBLIC_CALIBRE_PORT || 8000}`}
               // disabled={true}
