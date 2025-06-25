@@ -16,7 +16,7 @@ export default function Home() {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setHostname(window.location.hostname);
+      setHostname(process.env.NEXT_DOMAIN_HOSTNAME || window.location.hostname);
     }
   }, []);
 
