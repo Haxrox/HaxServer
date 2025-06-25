@@ -1,8 +1,6 @@
 'use client';
 
-import { FluentProvider, webDarkTheme, webLightTheme } from '@fluentui/react-components';
-import { Button , Image, tokens } from '@fluentui/react-components';
-import { ReactNode, useEffect, useState } from 'react';
+import { Button, Image, tokens } from '@fluentui/react-components';
 
 export default function MainButton({
   href,
