@@ -8,6 +8,7 @@ import { Toolbar, Button, Image, tokens } from '@fluentui/react-components';
 import { initializeIcons } from '@fluentui/font-icons-mdl2';
 import { GitHubLogoIcon } from '@fluentui/react-icons-mdl2';
 
+import MainButton from '@/components/MainButton';
 initializeIcons();
 
 export default function Home() {
@@ -85,101 +86,27 @@ export default function Home() {
             gap: tokens.spacingVerticalM,
             alignItems: 'center'
           }}>
-            <Button
-              as="a"
-              shape="circular"
-              appearance="primary"
-              style={{
-                paddingBlock: tokens.spacingHorizontalM,
-                boxShadow: tokens.shadow16,
-              }}
-              href="/shanchi"
-              >
-              {/* 將族聖殿 */}
-              <Image
-              src="/xiangqi-white-transparent.png"
-              fit="contain"
-              alt="Xiangqi"
-              ></Image>
-            </Button>
-            <Button
-              as="a"
-              shape="circular"
-              appearance="primary"
-              style={{
-                paddingBlock: tokens.spacingHorizontalM,
-                boxShadow: tokens.shadow16,
-              }}
-              href={`https://${hostname}:${process.env.NEXT_PUBLIC_PLEX_PORT || 32400}`}
-              >
-              {/* 觀雲樓 */}
-              <Image
-                src="/plex-white-transparent.png"
-                fit="contain"
-                alt="Plex"
-                ></Image>
-              {/* <WindowNewRegular /> */}
-            </Button>
-            <Button
-              as="a"
-              shape="circular"
-              appearance="primary"
-              style={{
-                paddingBlock: tokens.spacingHorizontalM,
-                boxShadow: tokens.shadow16,
-              }}
-              href={`https://${hostname}:${process.env.NEXT_PUBLIC_JELLYFIN_PORT || 8920}`}
-              >
-              {/* 聽雨亭 */}
-              <Image
-              src="/jellyfin-white-transparent.png"
-              fit="contain"
-              alt="Jellyfin"
-              ></Image>
-              {/* <WindowNewRegular /> */}
-            </Button>
-            <Button
-              as="a"
-              shape="circular"
-              appearance="primary"
-              style={{
-                paddingBlock: tokens.spacingHorizontalM,
-                boxShadow: tokens.shadow16,
-              }}
-              href={`https://${hostname}:${process.env.NEXT_PUBLIC_CALIBRE_PORT || 8000}`}
-              >
-              {/* 智慧之屋 */}
-              {/* <Library32Filled style={{
-                paddingRight: tokens.spacingHorizontalM
-                }} /> */}
-              <Image
-              src="/calibre-white-transparent.png"
-              fit="contain"
-              alt="Calibre"
-              ></Image>
-              {/* <WindowNew24Regular /> */}
-            </Button>
-            <Button
-              as="a"
-              shape="circular"
-              appearance="primary"
-              style={{
-                paddingBlock: tokens.spacingHorizontalM,
-                boxShadow: tokens.shadow16,
-              }}
-              href={`https://${hostname}/404`}
-              // disabled={true}
-              >
-              {/* 智慧之屋 */}
-              <Image
-              src="/karaoke-white-transparent.png"
-              fit="contain"
-              alt="Karaoke"
-              ></Image>
-              {/* <WindowNew24Regular /> */}
-            </Button>
-          </Toolbar>
-        {/* </Card> */}
+          <MainButton
+            href="/shanchi"
+            img="/xiangqi-white-transparent.png"
+          />
+          <MainButton
+            href={`https://${hostname}:${process.env.NEXT_PUBLIC_PLEX_PORT || 32400}`}
+            img="/plex-white-transparent.png"
+          />
+          <MainButton
+            href={`https://${hostname}:${process.env.NEXT_PUBLIC_JELLYFIN_PORT || 8920}`}
+            img="/jellyfin-white-transparent.png"
+          />
+          <MainButton
+            href={`https://${hostname}:${process.env.NEXT_PUBLIC_CALIBRE_PORT || 8000}`}
+            img="/calibre-white-transparent.png"
+          />
+          <MainButton
+            href={`https://${hostname}/404`}
+            img="/karaoke-white-transparent.png"
+          />
+        </Toolbar>
       </main>
 
       {/* Footer Section */}
