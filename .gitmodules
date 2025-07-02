@@ -1,3 +1,6 @@
 [submodule "xqwlight"]
 	path = xqwlight
 	url = https://github.com/Haxrox/xqwlight.git
+[submodule "Xiangqi"]
+	path = Xiangqi
+	url = https://github.com/Haxrox/Xiangqi.git
