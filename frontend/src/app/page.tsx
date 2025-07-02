@@ -9,6 +9,7 @@ import { initializeIcons } from '@fluentui/font-icons-mdl2';
 import { GitHubLogoIcon } from '@fluentui/react-icons-mdl2';
 
 import MainButton from '@/components/MainButton';
+import VisitCounter from '@/components/VisitCounter';
 initializeIcons();
 
 export default function Home() {
@@ -103,7 +104,7 @@ export default function Home() {
             img="/calibre-white-transparent.png"
           />
           <MainButton
-            href={`https://${hostname}/404`}
+            href={`https://${hostname}/xiangqi`}
             img="/karaoke-white-transparent.png"
           />
         </Toolbar>
@@ -125,6 +126,7 @@ export default function Home() {
           justifyContent: 'flex-end',
         }}
       >
+        <VisitCounter />
         <a href="https://github.com/Haxrox/HaxServer" target="_blank" rel="noopener noreferrer"
           style={{
             color: 'inherit',
