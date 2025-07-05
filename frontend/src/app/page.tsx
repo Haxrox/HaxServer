@@ -104,7 +104,7 @@ export default function Home() {
             img="/calibre-white-transparent.png"
           />
           <MainButton
-            href={`https://${hostname}/xiangqi`}
+            href="/xiangqi"
             img="/karaoke-white-transparent.png"
           />
         </Toolbar>
