@@ -3,7 +3,6 @@ const http = require('http');
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
-const bodyParser = require('body-parser');
 
 const app = express();
 const rateLimit = require('express-rate-limit');
@@ -16,35 +15,20 @@ const HTTPS_CERT = process.env.HTTPS_CERT || path.join(__dirname, 'selfsigned.ce
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // Limit each IP to 100 requests per windowMs
+  max: 500, // Limit each IP to 100 requests per windowMs
   message: 'Too many requests, please try again later.',
 });
 
+// Global middleware
 app.use(limiter);
-app.use(bodyParser.json());
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend/out/index.html'));
-});
-app.use(express.static(path.join(__dirname, 'frontend/out')));
-
-app.get('/shanchi', (req, res) => {
-  res.sendFile(path.join(__dirname, 'xqwlight/JavaScript/index.html'));
+app.use(express.json());
+app.use((req, res, next) => {
+  console.log('Request received:', req.method, req.url);
+  next();
 });
 
-// Serve Xiangqi content
-// The Xiangqi content lives under <root>/xqwlight/JavaScript/* directories
-app.use(express.static(path.join(__dirname, 'xqwlight/JavaScript')));
-
-// Serve online Xiangqi content
-app.get('/xiangqi', (req, res) => {
-  res.sendFile(path.join(__dirname, 'Xiangqi/index.html'));
-});
-
-// Serve Xiangqi content
-// The Xiangqi content lives under <root>/xqwlight/JavaScript/* directories
-app.use(express.static(path.join(__dirname, 'Xiangqi')));
-app.use('/api/log', (req, res) => {
+// API endpoints
+app.post('/api/log', (req, res) => {
   const tagMessage = req.body.tag || "unknown";
   const logMessage = req.body.log || "No log message provided";
   const timestamp = new Date().toLocaleString();
@@ -57,12 +41,11 @@ app.use('/api/log', (req, res) => {
       console.error('Error writing to log file:', err);
       return res.sendStatus(500); // Indicate an error
     }
-    console.log('Log received and saved:', logLine);
     res.sendStatus(200); // Indicate success
   });
 })
 
-app.use('/api/visit-count', (req, res) => {
+app.get('/api/visit-count', (req, res) => {
   const visitCountFile = path.join(__dirname, 'visit_count.txt');
 
   // Read the current visit count
@@ -96,6 +79,29 @@ app.use('/api/visit-count', (req, res) => {
   }
   );
 });
+
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend/out/index.html'));
+});
+app.use(express.static(path.join(__dirname, 'frontend/out')));
+
+app.get('/shanchi', (req, res) => {
+  res.sendFile(path.join(__dirname, 'xqwlight/JavaScript/index.html'));
+});
+
+// Serve Xiangqi content
+// The Xiangqi content lives under <root>/xqwlight/JavaScript/* directories
+app.use(express.static(path.join(__dirname, 'xqwlight/JavaScript')));
+
+// Serve online Xiangqi content
+app.get('/xiangqi', (req, res) => {
+  res.sendFile(path.join(__dirname, 'Xiangqi/index.html'));
+});
+
+// Serve Xiangqi content
+// The Xiangqi content lives under <root>/xqwlight/JavaScript/* directories
+app.use(express.static(path.join(__dirname, 'Xiangqi')));
 
 // Static frontend
 app.get('/fluent', (req, res) => {
