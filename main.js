@@ -1,4 +1,5 @@
 const express = require('express');
+const helmet = require('helmet');
 const http = require('http');
 const https = require('https');
 const fs = require('fs');
@@ -21,6 +22,9 @@ const limiter = rateLimit({
 
 // Global middleware
 app.use(limiter);
+app.use(helmet({
+  contentSecurityPolicy: false, // Disable CSP for simplicity, adjust as needed
+})); // Security headers
 app.use(express.json());
 app.use((req, res, next) => {
   console.log('Request received:', req.method, req.url);
