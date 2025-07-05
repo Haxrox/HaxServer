@@ -27,6 +27,11 @@ app.use((req, res, next) => {
   next();
 });
 
+// Static files
+app.use(express.static(path.join(__dirname, 'frontend/out')));
+app.use(express.static(path.join(__dirname, 'xqwlight/JavaScript')));
+app.use(express.static(path.join(__dirname, 'Xiangqi')));
+
 // API endpoints
 app.post('/api/log', (req, res) => {
   const tagMessage = req.body.tag || "unknown";
@@ -49,59 +54,47 @@ app.get('/api/visit-count', (req, res) => {
   const visitCountFile = path.join(__dirname, 'visit_count.txt');
 
   // Read the current visit count
-  fs.readFile(visitCountFile, 'utf8', (err, data) =>
-    {
+  fs.readFile(visitCountFile, 'utf8', (err, data) =>{
+    if (err) {
+      console.error('Error reading visit count file:', err);
+      return res.status(500).send('Internal Server Error');
+    }
+
+    let visitCount = parseInt(data, 10);
+    if (isNaN(visitCount)) {
+      visitCount = 0; // Initialize to 0 if the file is empty or invalid
+    }
+
+    // Increment the visit count
+    visitCount += 1;
+
+    // Write the updated count back to the file
+    fs.writeFile(visitCountFile, visitCount.toString(), 'utf8', (err) => {
       if (err) {
-        console.error('Error reading visit count file:', err);
+        console.error('Error writing visit count file:', err);
         return res.status(500).send('Internal Server Error');
       }
 
-      let visitCount = parseInt(data, 10);
-      if (isNaN(visitCount)) {
-        visitCount = 0; // Initialize to 0 if the file is empty or invalid
-      }
-
-      // Increment the visit count
-      visitCount += 1;
-
-      // Write the updated count back to the file
-      fs.writeFile(visitCountFile, visitCount.toString(), 'utf8', (err) => {
-        if (err) {
-          console.error('Error writing visit count file:', err);
-          return res.status(500).send('Internal Server Error');
-        }
-
-        // Send the updated count as a response
-        res.json({
-          count: visitCount
-        });
+      // Send the updated count as a response
+      res.json({
+        count: visitCount
       });
-  }
-  );
+    });
+  });
 });
-
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend/out/index.html'));
 });
-app.use(express.static(path.join(__dirname, 'frontend/out')));
 
 app.get('/shanchi', (req, res) => {
   res.sendFile(path.join(__dirname, 'xqwlight/JavaScript/index.html'));
 });
 
-// Serve Xiangqi content
-// The Xiangqi content lives under <root>/xqwlight/JavaScript/* directories
-app.use(express.static(path.join(__dirname, 'xqwlight/JavaScript')));
-
 // Serve online Xiangqi content
 app.get('/xiangqi', (req, res) => {
   res.sendFile(path.join(__dirname, 'Xiangqi/index.html'));
 });
-
-// Serve Xiangqi content
-// The Xiangqi content lives under <root>/xqwlight/JavaScript/* directories
-app.use(express.static(path.join(__dirname, 'Xiangqi')));
 
 // Static frontend
 app.get('/fluent', (req, res) => {
