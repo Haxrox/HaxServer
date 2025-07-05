@@ -4,7 +4,8 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node main.js"
+    "start": "node main.js",
+    "dev": "HTTP_PORT=8000 HTTPS_PORT=4000 node main.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   "dependencies": {
     "body-parser": "^2.2.0",
     "dotenv": "^16.5.0",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "express-rate-limit": "^7.5.1"
   }
 }

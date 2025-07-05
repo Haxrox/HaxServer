@@ -1,4 +1,3 @@
-
 const express = require('express');
 const http = require('http');
 const https = require('https');
@@ -7,6 +6,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 
 const app = express();
+const rateLimit = require('express-rate-limit');
 
 require('dotenv').config();
 const HTTP_PORT = process.env.HTTP_PORT || 80;
@@ -14,6 +14,13 @@ const HTTPS_PORT = process.env.HTTPS_PORT || 443;
 const HTTPS_KEY = process.env.HTTPS_KEY || path.join(__dirname, 'selfsigned.key');
 const HTTPS_CERT = process.env.HTTPS_CERT || path.join(__dirname, 'selfsigned.cert');
 
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per windowMs
+  message: 'Too many requests, please try again later.',
+});
+
+app.use(limiter);
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
@@ -40,7 +47,7 @@ app.use(express.static(path.join(__dirname, 'Xiangqi')));
 app.use('/api/log', (req, res) => {
   const tagMessage = req.body.tag || "unknown";
   const logMessage = req.body.log || "No log message provided";
-  const timestamp = new Date().toISOString();
+  const timestamp = new Date().toLocaleString();
   const logLine = `${timestamp} | ${req.ip} | ${tagMessage} | ${logMessage}\n`;
 
   console.log("[/api/log]: ", logLine);
