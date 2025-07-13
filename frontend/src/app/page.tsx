@@ -6,7 +6,7 @@ import { Toolbar, Image, tokens } from '@fluentui/react-components';
 // import { Library32Filled } from '@fluentui/react-icons';
 // WindowNewRegular, WindowNew24Regular,
 import { initializeIcons } from '@fluentui/font-icons-mdl2';
-import { GitHubLogoIcon } from '@fluentui/react-icons-mdl2';
+// import { GitHubLogoIcon } from '@fluentui/react-icons-mdl2';
 
 import MainButton from '@/components/MainButton';
 import VisitCounter from '@/components/VisitCounter';
@@ -127,7 +127,7 @@ export default function Home() {
         }}
       >
         <VisitCounter />
-        <a href="https://github.com/Haxrox/HaxServer" target="_blank" rel="noopener noreferrer"
+        {/* <a href="https://github.com/Haxrox/HaxServer" target="_blank" rel="noopener noreferrer"
           style={{
             color: 'inherit',
             textDecoration: 'none'
@@ -138,7 +138,7 @@ export default function Home() {
             marginRight: '8px',
             verticalAlign: 'middle'
           }} />
-        </a>
+        </a> */}
         <p>
           &copy; 2025 HaxTech. All rights reserved.
         </p>
