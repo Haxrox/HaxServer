@@ -4,11 +4,13 @@ import { Button, Image, tokens } from '@fluentui/react-components';
 
 export default function MainButton({
   href,
-  img
+  img,
+  text
 }: {
   href: string
-  img: string
-  }) {
+  img?: string
+  text?: string
+}) {
   return <Button
     as="a"
     shape="circular"
@@ -21,10 +23,12 @@ export default function MainButton({
     href={href}
     >
     {/* 將族聖殿 */}
-    <Image
-      src={img}
-      fit="contain"
-      alt="{img}"
-    ></Image>
+    {
+      text ? text : <Image
+        src={img}
+        fit="contain"
+        alt="{text}"
+      />
+    }
   </Button>
 }

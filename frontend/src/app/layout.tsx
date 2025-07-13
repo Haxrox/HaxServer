@@ -44,7 +44,7 @@ export default function RootLayout({
     console.log('HaxTech started at ' + startTime);
     window.addEventListener('beforeunload', async function (evt) {
       const endTime = new Date();
-      const duration = (endTime.valueOf() - startTime.valueOf() / 1000);
+      const duration = (endTime.valueOf() - startTime.valueOf()) / 1000;
 
       await send('api/log', "POST", {
         tag: "HaxTech",
