@@ -1,7 +1,18 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Toolbar, Image, tokens } from '@fluentui/react-components';
+import {
+  Toolbar,
+  Image,
+  tokens,
+  MenuTrigger,
+  MenuButton,
+  MenuPopover,
+  MenuList,
+  Menu,
+  MenuItemLink,
+  MenuItem
+} from '@fluentui/react-components';
 // Card,
 // import { Library32Filled } from '@fluentui/react-icons';
 // WindowNewRegular, WindowNew24Regular,
@@ -87,10 +98,62 @@ export default function Home() {
             gap: tokens.spacingVerticalM,
             alignItems: 'center'
           }}>
-          <MainButton
-            href="/shanchi"
-            img="/xiangqi-white-transparent.png"
-          />
+          <Menu positioning="after">
+            <MenuTrigger disableButtonEnhancement>
+              <MenuButton appearance="primary" shape="circular" size="large">
+                <Image
+                  src="/xiangqi-white-transparent.png"
+                  fit="contain"
+                  alt="Xiangqi Game"
+                />
+              </MenuButton>
+            </MenuTrigger>
+
+            <MenuPopover>
+              <MenuList>
+                <MenuItemLink href="/shanchi">
+                  <Image
+                    src="/將兵神棋logo.png"
+                    fit="contain"
+                    alt="{text}"
+                    style={{
+                      width: '200px'
+                    }} // Adjust size as needed
+                  />
+                </MenuItemLink>
+                <MenuItemLink href="/wenpu">
+                  <Image
+                    src="/問譜logo.png"
+                    fit="contain"
+                    alt="{text}"
+                    style={{
+                      width: '200px'
+                    }} // Adjust size as needed
+                  />
+                </MenuItemLink>
+                <MenuItemLink href="/shanchi-lobby">
+                  <Image
+                    src="/禿頭峰大擂台logo.png"
+                    fit="contain"
+                    alt="{text}"
+                    style={{
+                      width: '200px'
+                    }} // Adjust size as needed
+                  />
+                </MenuItemLink>
+                <MenuItemLink href="/shanchi-leaderboard">
+                  <Image
+                    src="/封神榜logo.png"
+                    fit="contain"
+                    alt="{text}"
+                    style={{
+                      width: '200px'
+                    }} // Adjust size as needed
+                  />
+                </MenuItemLink>
+              </MenuList>
+            </MenuPopover>
+          </Menu>
           <MainButton
             href={`https://${hostname}:${process.env.NEXT_PUBLIC_PLEX_PORT || 32400}`}
             img="/plex-white-transparent.png"
@@ -106,10 +169,6 @@ export default function Home() {
           <MainButton
             href="/xiangqi"
             img="/karaoke-white-transparent.png"
-          />
-          <MainButton
-            href="/dashboard"
-            text="Dashboard"
           />
         </Toolbar>
       </main>
