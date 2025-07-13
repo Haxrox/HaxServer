@@ -174,10 +174,6 @@ export default function Home() {
             href="/xiangqi"
             img="/karaoke-white-transparent.png"
           />
-          <MainButton
-            href="/dashboard"
-            text="Dashboard"
-          />
         </Toolbar>
       </main>
 
