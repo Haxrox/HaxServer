@@ -11,7 +11,10 @@ import {
   MenuList,
   Menu,
   MenuItemLink,
-  MenuItem
+  MenuItem,
+  useFluent,
+  webDarkTheme,
+  webLightTheme
 } from '@fluentui/react-components';
 // Card,
 // import { Library32Filled } from '@fluentui/react-icons';
@@ -21,10 +24,14 @@ import { initializeIcons } from '@fluentui/font-icons-mdl2';
 
 import MainButton from '@/components/MainButton';
 import VisitCounter from '@/components/VisitCounter';
+import { useTheme } from '@/components/FluentProvider';
 initializeIcons();
 
 export default function Home() {
   const [hostname, setHostname] = useState(process.env.NEXT_DOMAIN_HOSTNAME || 'localhost');
+  const themeContext = useTheme();
+  const theme = themeContext.theme;
+  const isDarkMode = themeContext.isDarkMode ?? false;
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -109,7 +116,7 @@ export default function Home() {
                   src="/xiangqi-white-transparent.png"
                   fit="contain"
                   alt="Xiangqi Game"
-                />
+                  />
               </MenuButton>
             </MenuTrigger>
 
@@ -121,9 +128,10 @@ export default function Home() {
                     fit="contain"
                     alt="{text}"
                     style={{
-                      width: '200px'
+                      width: '200px',
+                      filter: isDarkMode ? 'none' : 'invert(1)'
                     }} // Adjust size as needed
-                  />
+                    />
                 </MenuItemLink>
                 <MenuItemLink href="/wenpu">
                   <Image
@@ -131,7 +139,8 @@ export default function Home() {
                     fit="contain"
                     alt="{text}"
                     style={{
-                      width: '200px'
+                      width: '200px',
+                      filter: isDarkMode ? 'none' : 'invert(1)'
                     }} // Adjust size as needed
                   />
                 </MenuItemLink>
@@ -141,9 +150,10 @@ export default function Home() {
                     fit="contain"
                     alt="{text}"
                     style={{
-                      width: '200px'
+                      width: '200px',
+                      filter: isDarkMode ? 'none' : 'invert(1)'
                     }} // Adjust size as needed
-                  />
+                    />
                 </MenuItemLink>
                 <MenuItemLink href="/shanchi-leaderboard">
                   <Image
@@ -151,7 +161,8 @@ export default function Home() {
                     fit="contain"
                     alt="{text}"
                     style={{
-                      width: '200px'
+                      width: '200px',
+                      filter: isDarkMode ? 'none' : 'invert(1)'
                     }} // Adjust size as needed
                   />
                 </MenuItemLink>
