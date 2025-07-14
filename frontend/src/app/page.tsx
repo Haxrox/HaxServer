@@ -100,7 +100,11 @@ export default function Home() {
           }}>
           <Menu positioning="after">
             <MenuTrigger disableButtonEnhancement>
-              <MenuButton appearance="primary" shape="circular" size="large">
+              <MenuButton appearance="primary" shape="circular" style={{
+                paddingBlock: tokens.spacingHorizontalM,
+                boxShadow: tokens.shadow16,
+                height: '7vh'
+              }}>
                 <Image
                   src="/xiangqi-white-transparent.png"
                   fit="contain"
