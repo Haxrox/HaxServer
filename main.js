@@ -42,6 +42,7 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, 'frontend/out')));
 app.use(express.static(path.join(__dirname, 'xqwlight/JavaScript')));
 app.use(express.static(path.join(__dirname, 'Xiangqi')));
+app.use(express.static(path.join(__dirname, 'WenPu')));
 
 // API endpoints
 const { OAuth2Client } = require('google-auth-library');
@@ -172,6 +173,10 @@ app.get('/login', (req, res) => {
 
 app.get('/shanchi', (req, res) => {
   res.sendFile(path.join(__dirname, 'xqwlight/JavaScript/index.html'));
+});
+
+app.get('/WenPu', (req, res) => {
+  res.sendFile(path.join(__dirname, 'WenPu/WenPu.html'));
 });
 
 // Serve online Xiangqi content

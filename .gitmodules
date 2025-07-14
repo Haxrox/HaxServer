@@ -4,3 +4,6 @@
 [submodule "Xiangqi"]
 	path = Xiangqi
 	url = https://github.com/Haxrox/Xiangqi.git
+[submodule "WenPu"]
+	path = WenPu
+	url = https://github.com/HmniTech/WenPu.git
