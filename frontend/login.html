@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <script src="https://accounts.google.com/gsi/client" async></script>
+  <script type="module" src="https://unpkg.com/@fluentui/web-components"></script>
+  <style>
+    body { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: var(--neutral-fill-rest); color: var(--neutral-foreground-rest); }
+    .card { background: var(--neutral-layer-1); padding: 24px; border-radius: 8px; box-shadow: var(--elevation-shadow-card-rest); width: 400px; display: flex; flex-direction: column; gap: 20px; }
+    form { display: flex; flex-direction: column; gap: 16px; }
+    .field-group { display: flex; flex-direction: column; gap: 4px; }
+  </style>
+</head>
+<body>
+  <fluent-design-system-provider id="provider" use-defaults>
+    <div id="g_id_onload"
+      data-client_id="314991611736-ou6racd7m30ua6k9h8vs355850f3ppur.apps.googleusercontent.com"
+      data-context="use"
+      data-ux_mode="popup"
+      data-login_uri="http://localhost:8000/api/login"
+      data-nonce=""
+      data-auto_select="true"
+      data-itp_support="true">
+    </div>
+
+    <div class="card">
+      <div class="g_id_signin"
+        data-type="standard"
+        data-shape="pill"
+        data-theme="filled_blue"
+        data-text="signin_with"
+        data-size="large"
+        data-logo_alignment="left">
+      </div>
+
+      <form action="/api/login" method="POST">
+        <div class="field-group">
+          <label for="username">Username</label>
+          <fluent-text-field name="username" type="email" id="username" required></fluent-text-field>
+        </div>
+        <div class="field-group">
+          <label for="password">Password</label>
+          <fluent-text-field name="password" type="password" id="password" required></fluent-text-field>
+        </div>
+        <fluent-button appearance="primary" type="submit" style="align-self: flex-end;">Login</fluent-button>
+      </form>
+    </div>
+  </fluent-design-system-provider>
+</body>
+</html>

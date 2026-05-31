@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - Log Reader</title>
+  <script type="module" src="https://unpkg.com/@fluentui/web-components"></script>
+  <style>
+    body { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--neutral-fill-rest); color: var(--neutral-foreground-rest); display: flex; flex-direction: column; height: 100vh; }
+    .header { margin: 16px; height: 10vh; display: flex; align-items: center; gap: 16px; }
+    .log-container { margin: 0 16px 16px 16px; flex-grow: 1; overflow-y: auto; background: var(--neutral-layer-1); padding: 16px; border-radius: 4px; box-shadow: inset 0 0 4px rgba(0,0,0,0.1); }
+    pre { font-family: monospace; white-space: pre-wrap; margin: 0; }
+  </style>
+</head>
+<body>
+  <fluent-design-system-provider id="provider" use-defaults style="display: flex; flex-direction: column; height: 100%;">
+    <div class="header">
+      <h1>Log Reader</h1>
+      <fluent-button appearance="primary" id="refresh-btn">Refresh</fluent-button>
+      <a href="/" style="margin-left: auto;"><fluent-button appearance="stealth">Back to Home</fluent-button></a>
+    </div>
+    <div class="log-container">
+      <pre id="log-output">Loading logs...</pre>
+    </div>
+  </fluent-design-system-provider>
+
+  <script>
+    function getLogs() {
+      fetch('/api/log')
+        .then(response => response.json())
+        .then(data => {
+          const logs = data.logs || [];
+          document.getElementById('log-output').textContent = logs.length > 0 ? logs.reverse().join('\n') : 'No logs available.';
+        })
+        .catch(error => {
+          console.error('Error fetching logs:', error);
+          document.getElementById('log-output').textContent = 'Error fetching logs.';
+        });
+    }
+
+    document.getElementById('refresh-btn').addEventListener('click', getLogs);
+    getLogs(); // initial load
+  </script>
+</body>
+</html>
