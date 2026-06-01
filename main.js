@@ -39,7 +39,8 @@ app.use((req, res, next) => {
 });
 
 // Static files
-app.use(express.static(path.join(__dirname, 'frontend/out')));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'frontend')));
 app.use(express.static(path.join(__dirname, 'xqwlight/JavaScript')));
 app.use(express.static(path.join(__dirname, 'Xiangqi')));
 app.use(express.static(path.join(__dirname, 'WenPu')));
@@ -160,15 +161,15 @@ app.get('/api/visit-count', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend/out/index.html'));
+  res.sendFile(path.join(__dirname, 'frontend/index.html'));
 });
 
 app.get('/dashboard', sessionManager.middleware.bind(sessionManager), (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend/out/dashboard.html'));
+  res.sendFile(path.join(__dirname, 'frontend/dashboard.html'));
 });
 
 app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend/out/login.html'));
+  res.sendFile(path.join(__dirname, 'frontend/login.html'));
 });
 
 app.get('/shanchi', (req, res) => {
@@ -191,7 +192,7 @@ app.get('/fluent', (req, res) => {
 
 // Catch-all middleware for 404
 app.use((req, res) => {
-  res.status(404).sendFile(path.join(__dirname, 'frontend/out/404.html'));
+  res.status(404).sendFile(path.join(__dirname, 'frontend/404.html'));
 });
 
 // Create an HTTPS server

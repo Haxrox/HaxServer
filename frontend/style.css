@@ -1,0 +1,182 @@
+    /* Global */
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('/background.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-image: url('/dark-background.png');
+      }
+    }
+
+    fluent-design-system-provider {
+      display: block;
+      min-height: 100%;
+      width: 100%;
+      background-color: transparent;
+      color: var(--neutral-foreground-rest);
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      height: 15vh;
+    }
+
+    header img {
+      object-fit: contain;
+    }
+
+    .header-lantern {
+      height: 100%;
+    }
+
+    .header-title {
+      width: 50vh;
+      padding-top: 32px;
+      padding-bottom: 32px;
+    }
+
+    /* Main */
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 65vh;
+      overflow: hidden;
+    }
+
+    /* Toolbar */
+    .toolbar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+    }
+
+    /* Buttons */
+    fluent-button.main-btn {
+      height: 7vh;
+    }
+
+    fluent-button.main-btn::part(control) {
+      padding: 0;
+    }
+
+    fluent-button.main-btn img {
+      object-fit: contain;
+      width: 60%;
+      height: 60%;
+    }
+
+    /* Menu / Popover */
+    .menu-container {
+      position: relative;
+    }
+    fluent-menu#menu-popover {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: calc(100% + 16px);
+      z-index: 1000;
+      /* Provide opaque fallback backgrounds to fix bleeding */
+      background-color: var(--neutral-layer-floating, #ffffff);
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.14);
+      padding: 4px;
+      border-radius: 4px;
+      width: max-content;
+      min-width: 220px;
+    }
+    fluent-menu#menu-popover.show {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      fluent-menu#menu-popover {
+        background-color: var(--neutral-layer-floating, #292929);
+      }
+    }
+
+    fluent-menu-item {
+      cursor: pointer;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    fluent-menu-item img {
+      width: 200px;
+      object-fit: contain;
+    }
+
+    /* Dark mode toggle handling */
+    @media (prefers-color-scheme: dark) {
+      fluent-menu-item img {
+        filter: invert(0) !important;
+      }
+    }
+
+    @media (prefers-color-scheme: light) {
+      fluent-menu-item img {
+        filter: invert(1);
+      }
+    }
+
+    /* Footer */
+    footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 15vh;
+      text-align: center;
+      padding-top: 16px;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .footer-bg {
+      width: 100%;
+      height: 60%;
+      background-image: url('/footer.png');
+      /* From public root */
+      background-repeat: repeat-x;
+      background-position: bottom;
+      background-size: auto 100%;
+      margin-top: auto;
+    }
+
+    footer p {
+      margin: 0;
+      padding-bottom: 8px;
+    }
+
+    /* Force the classic Fluent UI Blue to prevent it from being too light */
+    fluent-button[appearance="accent"]::part(control),
+    fluent-button[appearance="primary"]::part(control) {
+      background-color: #0078d4;
+      color: white;
+    }
+    fluent-button[appearance="accent"]:hover::part(control),
+    fluent-button[appearance="primary"]:hover::part(control) {
+      background-color: #106ebe;
+    }
+    fluent-button[appearance="accent"]:active::part(control),
+    fluent-button[appearance="primary"]:active::part(control) {
+      background-color: #005a9e;
+    }

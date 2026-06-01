@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HaxServer</title>
+  <meta name="description" content="Pointer to all web applications created by HaxTech">
+  <link rel="icon" href="/Shark.png">
+  <link rel="apple-touch-icon" href="/Shark.png">
+
+  <!-- Fluent UI Web Components -->
+  <script type="module" src="https://unpkg.com/@fluentui/web-components"></script>
+
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <fluent-design-system-provider id="provider" use-defaults>
+    <!-- Header -->
+    <header>
+      <img class="header-lantern" src="/lantern-transparent.png" alt="Lantern Image" />
+      <img class="header-title" src="/title.png" alt="Title Image" />
+      <img class="header-lantern" src="/lantern-transparent.png" alt="Lantern Image" />
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <div class="toolbar">
+
+        <!-- Menu Container -->
+        <div class="menu-container">
+          <fluent-button id="menu-trigger" appearance="accent" class="main-btn" aria-haspopup="true"
+            aria-expanded="false">
+            <img src="/xiangqi-white-transparent.png" alt="Xiangqi Game" />
+          </fluent-button>
+
+          <fluent-menu id="menu-popover">
+            <fluent-menu-item onclick="window.location.href='/shanchi'">
+              <img src="/將兵神棋logo.png" alt="將兵神棋" />
+            </fluent-menu-item>
+            <fluent-menu-item onclick="window.location.href='/wenpu'">
+              <img src="/問譜logo.png" alt="問譜" />
+            </fluent-menu-item>
+            <fluent-menu-item onclick="window.location.href='/shanchi-lobby'">
+              <img src="/禿頭峰大擂台logo.png" alt="禿頭峰大擂台" />
+            </fluent-menu-item>
+            <fluent-menu-item onclick="window.location.href='/shanchi-leaderboard'">
+              <img src="/封神榜logo.png" alt="封神榜" />
+            </fluent-menu-item>
+          </fluent-menu>
+        </div>
+
+        <!-- Main Buttons -->
+        <a id="link-plex" href="#">
+          <fluent-button appearance="accent" class="main-btn">
+            <img src="/plex-white-transparent.png" alt="Plex" />
+          </fluent-button>
+        </a>
+        <a id="link-jellyfin" href="#">
+          <fluent-button appearance="accent" class="main-btn">
+            <img src="/jellyfin-white-transparent.png" alt="Jellyfin" />
+          </fluent-button>
+        </a>
+        <a id="link-calibre" href="#">
+          <fluent-button appearance="accent" class="main-btn">
+            <img src="/calibre-white-transparent.png" alt="Calibre" />
+          </fluent-button>
+        </a>
+        <a href="/xiangqi">
+          <fluent-button appearance="accent" class="main-btn">
+            <img src="/karaoke-white-transparent.png" alt="Karaoke/Xiangqi" />
+          </fluent-button>
+        </a>
+
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p id="visit-counter">Total visit count: 0</p>
+      <p>&copy; 2026 HaxTech. All rights reserved.</p>
+      <div class="footer-bg"></div>
+    </footer>
+  </fluent-design-system-provider>
+
+  <!-- Scripts -->
+  <script src="/main.js"></script>
+  <script>
+    // Dark mode detection for Fluent UI Web Components
+    const provider = document.getElementById('provider');
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        provider.baseLayerLuminance = 0.15; // Dark mode luminance
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+        provider.baseLayerLuminance = event.matches ? 0.15 : 1;
+    });
+
+    // Register Service Worker for PWA
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, err => {
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+  </script>
+</body>
+
+</html>
