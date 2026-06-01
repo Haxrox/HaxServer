@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,149 +8,14 @@
   <meta name="description" content="Pointer to all web applications created by HaxTech">
   <link rel="icon" href="/Shark.png">
   <link rel="apple-touch-icon" href="/Shark.png">
-  
+
   <!-- Fluent UI Web Components -->
   <script type="module" src="https://unpkg.com/@fluentui/web-components"></script>
-  
-  <style>
-    /* Global */
-    html, body {
-      height: 100%;
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    
-    fluent-design-system-provider {
-      display: block;
-      min-height: 100%;
-      width: 100%;
-      background-color: var(--neutral-fill-rest);
-      color: var(--neutral-foreground-rest);
-    }
 
-    /* Header */
-    header {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      height: 15vh;
-    }
-    header img {
-      object-fit: contain;
-    }
-    .header-lantern {
-      height: 100%;
-    }
-    .header-title {
-      width: 50vh;
-      padding-top: 32px;
-      padding-bottom: 32px;
-    }
-
-    /* Main */
-    main {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 65vh;
-      overflow: hidden;
-    }
-
-    /* Toolbar */
-    .toolbar {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      align-items: center;
-    }
-
-    /* Buttons */
-    fluent-button.main-btn {
-      height: 7vh;
-      width: 7vh; /* keep it circular */
-      border-radius: 50%;
-    }
-    fluent-button.main-btn::part(control) {
-      border-radius: 50%;
-      padding: 0;
-    }
-    fluent-button.main-btn img {
-      object-fit: contain;
-      width: 60%;
-      height: 60%;
-    }
-
-    /* Menu / Popover */
-    .menu-container {
-      position: relative;
-    }
-    .menu-popover {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: calc(100% + 16px);
-      z-index: 1000;
-      background-color: var(--neutral-layer-floating);
-      box-shadow: var(--elevation-shadow-floating);
-      border-radius: calc(var(--control-corner-radius) * 1px);
-      padding: 4px;
-    }
-    .menu-popover.show {
-      display: block;
-    }
-    
-    fluent-menu-item {
-      cursor: pointer;
-    }
-    fluent-menu-item img {
-      width: 200px;
-      object-fit: contain;
-    }
-
-    /* Dark mode toggle handling */
-    @media (prefers-color-scheme: dark) {
-      fluent-menu-item img {
-        filter: invert(0) !important;
-      }
-    }
-    @media (prefers-color-scheme: light) {
-      fluent-menu-item img {
-        filter: invert(1);
-      }
-    }
-
-    /* Footer */
-    footer {
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 15vh;
-      text-align: center;
-      padding-top: 16px;
-      z-index: 100;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-    }
-    .footer-bg {
-      width: 100%;
-      height: 60%;
-      background-image: url('/footer.png'); /* From public root */
-      background-repeat: repeat-x;
-      background-position: bottom;
-      background-size: auto 100%;
-      margin-top: auto;
-    }
-    footer p {
-      margin: 0;
-      padding-bottom: 8px;
-    }
-  </style>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
   <fluent-design-system-provider id="provider" use-defaults>
     <!-- Header -->
@@ -162,29 +28,28 @@
     <!-- Main Content -->
     <main>
       <div class="toolbar">
-        
+
         <!-- Menu Container -->
         <div class="menu-container">
-          <fluent-button id="menu-trigger" appearance="accent" class="main-btn" aria-haspopup="true" aria-expanded="false">
+          <fluent-button id="menu-trigger" appearance="accent" class="main-btn" aria-haspopup="true"
+            aria-expanded="false">
             <img src="/xiangqi-white-transparent.png" alt="Xiangqi Game" />
           </fluent-button>
-          
-          <div id="menu-popover" class="menu-popover">
-            <fluent-menu>
-              <fluent-menu-item onclick="window.location.href='/shanchi'">
-                <img src="/將兵神棋logo.png" alt="將兵神棋" />
-              </fluent-menu-item>
-              <fluent-menu-item onclick="window.location.href='/wenpu'">
-                <img src="/問譜logo.png" alt="問譜" />
-              </fluent-menu-item>
-              <fluent-menu-item onclick="window.location.href='/shanchi-lobby'">
-                <img src="/禿頭峰大擂台logo.png" alt="禿頭峰大擂台" />
-              </fluent-menu-item>
-              <fluent-menu-item onclick="window.location.href='/shanchi-leaderboard'">
-                <img src="/封神榜logo.png" alt="封神榜" />
-              </fluent-menu-item>
-            </fluent-menu>
-          </div>
+
+          <fluent-menu id="menu-popover">
+            <fluent-menu-item onclick="window.location.href='/shanchi'">
+              <img src="/將兵神棋logo.png" alt="將兵神棋" />
+            </fluent-menu-item>
+            <fluent-menu-item onclick="window.location.href='/wenpu'">
+              <img src="/問譜logo.png" alt="問譜" />
+            </fluent-menu-item>
+            <fluent-menu-item onclick="window.location.href='/shanchi-lobby'">
+              <img src="/禿頭峰大擂台logo.png" alt="禿頭峰大擂台" />
+            </fluent-menu-item>
+            <fluent-menu-item onclick="window.location.href='/shanchi-leaderboard'">
+              <img src="/封神榜logo.png" alt="封神榜" />
+            </fluent-menu-item>
+          </fluent-menu>
         </div>
 
         <!-- Main Buttons -->
@@ -208,14 +73,14 @@
             <img src="/karaoke-white-transparent.png" alt="Karaoke/Xiangqi" />
           </fluent-button>
         </a>
-        
+
       </div>
     </main>
 
     <!-- Footer -->
     <footer>
       <p id="visit-counter">Total visit count: 0</p>
-      <p>&copy; 2025 HaxTech. All rights reserved.</p>
+      <p>&copy; 2026 HaxTech. All rights reserved.</p>
       <div class="footer-bg"></div>
     </footer>
   </fluent-design-system-provider>
@@ -231,6 +96,18 @@
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
         provider.baseLayerLuminance = event.matches ? 0.15 : 1;
     });
+
+    // Register Service Worker for PWA
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, err => {
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
   </script>
 </body>
+
 </html>
