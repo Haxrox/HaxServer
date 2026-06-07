@@ -68,6 +68,10 @@
     }
 
     /* Buttons */
+    fluent-button {
+      --control-corner-radius: 16;
+    }
+
     fluent-button.main-btn {
       height: 7vh;
     }
