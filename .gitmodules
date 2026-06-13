@@ -7,3 +7,6 @@
 [submodule "WenPu"]
 	path = WenPu
 	url = https://github.com/HmniTech/WenPu.git
+[submodule "docs"]
+	path = docs
+	url = https://github.com/HmniTech/projects.git
