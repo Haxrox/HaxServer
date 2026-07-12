@@ -26,6 +26,7 @@ const limiter = rateLimit({
 });
 
 // Global middleware
+app.set('trust proxy', 1);
 app.use(limiter);
 app.use(helmet({
   contentSecurityPolicy: false, // Disable CSP for simplicity, adjust as needed
@@ -195,27 +196,30 @@ app.use((req, res) => {
   res.status(404).sendFile(path.join(__dirname, 'frontend/404.html'));
 });
 
-// Create an HTTPS server
-const options = {
-  key: fs.readFileSync(HTTPS_KEY),
-  cert: fs.readFileSync(HTTPS_CERT)
-};
+if (process.env.BEHIND_PROXY === 'true') {
+  // When behind a reverse proxy like Nginx, Nginx handles HTTPS and redirects.
+  // We only need to start an HTTP server for the app.
+  http.createServer(app).listen(HTTP_PORT, "0.0.0.0", () => {
+    console.log(`HTTP Server (behind proxy) is running on port ${HTTP_PORT}`);
+  });
+} else {
+  // Create an HTTPS server
+  const options = {
+    key: fs.readFileSync(HTTPS_KEY),
+    cert: fs.readFileSync(HTTPS_CERT)
+  };
 
-const httpsServer = https.createServer(options, app);
-httpsServer.listen(HTTPS_PORT, () => {
-  console.log(`HTTPS Server is running on port ${HTTPS_PORT}`);
-});
+  const httpsServer = https.createServer(options, app);
+  httpsServer.listen(HTTPS_PORT, () => {
+    console.log(`HTTPS Server is running on port ${HTTPS_PORT}`);
+  });
 
-// const httpServer = http.createServer(options, app)
-// httpServer.listen(HTTP_PORT, () => {
-//   console.log(`HTTP Server is running on port ${HTTP_PORT}`);
-//   console.log(`Redirecting HTTP to HTTPS on port ${HTTPS_PORT}`);
-// });
-http.createServer((req, res) => {
-  // Redirect HTTP requests to HTTPS
-  res.writeHead(301, { Location: `https://${req.headers.host}${req.url}` });
-  res.end();
-}).listen(HTTP_PORT, () => {
-  console.log(`HTTP Server is running on port ${HTTP_PORT}`);
-  console.log(`Redirecting HTTP to HTTPS on port ${HTTPS_PORT}`);
-});
+  http.createServer((req, res) => {
+    // Redirect HTTP requests to HTTPS
+    res.writeHead(301, { Location: `https://${req.headers.host}${req.url}` });
+    res.end();
+  }).listen(HTTP_PORT, () => {
+    console.log(`HTTP Server is running on port ${HTTP_PORT}`);
+    console.log(`Redirecting HTTP to HTTPS on port ${HTTPS_PORT}`);
+  });
+}

@@ -1,15 +1,15 @@
 // --- Links Generation ---
 const hostname = window.location.hostname || 'localhost';
 
-// Environment variables were used in next.js, but since this is static, 
+// Environment variables were used in next.js, but since this is static,
 // we use default ports. Adjust if necessary using backend injection or keep defaults.
 const plexPort = 32400;
 const jellyfinPort = 8920;
-const calibrePort = 8000;
+const calibrePort = 7505;
 
-document.getElementById('link-plex').href = `https://${hostname}:${plexPort}`;
-document.getElementById('link-jellyfin').href = `https://${hostname}:${jellyfinPort}`;
-document.getElementById('link-calibre').href = `https://${hostname}:${calibrePort}`;
+// document.getElementById('link-plex').href = `https://plex.${hostname}`;
+document.getElementById('link-jellyfin').href = `https://jellyfin.${hostname}`;
+document.getElementById('link-calibre').href = `https://calibre.${hostname}`;
 
 // --- Menu Logic ---
 const menuTrigger = document.getElementById('menu-trigger');
